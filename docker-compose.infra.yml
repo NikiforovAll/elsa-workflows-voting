@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  elsa-studio:
+    image: elsaworkflows/elsa-studio-v3:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - HTTP_PORTS=8080
+      - ELSASERVER__URL=http://host.docker.internal:5239/elsa/api
+    ports:
+      - 14000:8080
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Secret123!@#
+    ports:
+      - 1433:1433

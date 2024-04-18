@@ -1,0 +1,56 @@
+###
+POST {{url}}/workflows/quorum-vote
+Content-Type: application/json
+
+{
+    "members": [
+        {"name": "User 1", "id": "1"},
+        {"name": "User 2", "id": "2"},
+        {"name": "User 3", "id": "3"}
+    ]
+}
+
+###
+POST {{url}}/workflows/parallel-quorum-vote
+Content-Type: application/json
+
+{
+    "members": [
+        {"name": "User 1", "id": "1"},
+        {"name": "User 2", "id": "2"}
+    ]
+}
+
+###
+POST {{url}}/workflows/parallel-quorum-vote-composite
+Content-Type: application/json
+
+{
+    "members": [
+        {"name": "User 1", "id": "1"},
+        {"name": "User 2", "id": "2"}
+    ]
+}
+###
+POST {{url}}/workflows/parallel-quorum-vote-composite-activity
+Content-Type: application/json
+
+{
+    "members": [
+        {"name": "User 1", "id": "1"},
+        {"name": "User 2", "id": "2"}
+    ]
+}
+###
+
+@taskId=67ed9775d5f2450
+@apiKey=00000000-0000-0000-0000-000000000000
+
+POST {{url}}/elsa/api/tasks/{{taskId}}/complete
+Content-Type: application/json
+Authorization: ApiKey {{apiKey}}
+
+{
+    "result": false
+}
+
