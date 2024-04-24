@@ -15,13 +15,13 @@ public class QuorumVotingWorkflow : WorkflowBase
     {
         builder.Version = 1;
 
-        var board = builder.WithVariable<VotingBoard>();
+        var board = builder.WithVariable<VotingBoard>().WithWorkflowStorage();
 
-        var currentVoteResult = builder.WithVariable<bool>();
+        var currentVoteResult = builder.WithVariable<bool>().WithWorkflowStorage();
 
-        var votes = builder.WithVariable<Dictionary<string, bool>>();
+        var votes = builder.WithVariable<Dictionary<string, bool>>().WithWorkflowStorage();
 
-        var approved = builder.WithVariable<bool>();
+        var approved = builder.WithVariable<bool>().WithWorkflowStorage();
 
         builder.Root = new Sequence
         {
